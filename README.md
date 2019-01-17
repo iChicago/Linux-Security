@@ -25,3 +25,33 @@ Some useful notes taken while studying this topic on Udacity
   - **This user doesn't have root permissions**
 - Connect to the new user remotely ```ssh student@120.0.0.1 -p 2222```
 
+## Sudoers file
+- This file shows all users that have **Sudo** permisions ```cat /etc/sudoers```
+  - New sudo users are listed under this file ```sudo ls /etc/sudoers.d```
+  - Each sudo user have a file in **sudoers.d** directory
+
+## Giving a Sudo Permission
+- Copy a sudo user's file (**vagrant**) and rename it to the new users's name (**student**)
+  - ```sudo cp /etc/sudoers.d/vagrant /etc/sudoers.d/student```
+- Go inside the file **student** and run the command 
+  - ```sudo nano /etc/sudoers.d/student```
+  - rename **vagrant** to **student** 
+  - save the file
+  
+## Ressiting Password
+- To force a user to hcange his password next time when they log in ```sudo passwd -e student```
+  - **-e** means **Expire**
+
+## Generating Key Pairs
+- To generate public and private keys use ```ssh-key-gen```
+  - Enter the location of resulting pair 
+  - You will get **two** files 
+    - private key **fileName**
+    - public key **fileName.pub** 
+      - we will store this file in our server
+- Supported Key Types
+  - DSA
+  - ECDSA
+  - ED12219
+  - **RSA** is the defualut
+    
