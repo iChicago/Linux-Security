@@ -18,7 +18,7 @@ Some useful notes taken while studying this topic on Udacity
 - To print all users thar are currently logged in the system ```finger```
 - To see more info about particular user ```finger yourUserNmae```
 - This is a very important file on your system! It's used to keep track of all users on the system. ```cat /etc/passwd```
-  - username:password:UID:GID:UID info:home directory:command/shell
+  - **username:password:UID:GID:UID info:home directory:command/shell**
 
 ## User Management
 - Create user ```sudo adduser student```
@@ -55,3 +55,15 @@ Some useful notes taken while studying this topic on Udacity
   - ED12219
   - **RSA** is the defualut
     
+## Installing Public Keys
+- In your server's home directory, run ```mkdir .ssh``` to make **.ssh** directory
+- In **.ssh** directory, make file and call it **authorized_keys**
+- Get the **public key** from your *local machine* and paste it inside **authorized_keys** from your *server*
+- In the server
+  - Give permission 700 to the directory .ssh
+    - ```chmod 700 .ssh```
+  - Give permission 644 to authorized_keys
+    - ```chmod 644 .ssh/authorized_keys```
+- **Now,** the client can access the server using the account **student** 
+  - ```ssh student@120.0.0.1 -p 2222 -i ~/.ssh/linuxCourse```
+    - **~/.ssh/linuxCours** is where the private key is stored
