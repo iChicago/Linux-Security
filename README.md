@@ -67,3 +67,11 @@ Some useful notes taken while studying this topic on Udacity
 - **Now,** the client can access the server using the account **student** 
   - ```ssh student@120.0.0.1 -p 2222 -i ~/.ssh/linuxCourse```
     - **~/.ssh/linuxCours** is where the private key is stored
+    
+## Disable Username&Password Login
+- **sshd_config** is the service **in your server** that is lestining to every ssh connection to your server.
+- Edit it using ```sudo nano /etc/ssh/sshd_config```
+  - Change **PasswordAuthentication** to  **no**
+- Restart the service to read the new configurations
+  - ```sudo service ssh restart```
+- **Now,** login users can't log using username and password. Only key pair login is permitted.
