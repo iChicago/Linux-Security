@@ -24,6 +24,8 @@ Some useful notes taken while studying this topic on Udacity
 - Create user ```sudo adduser student```
   - **This user doesn't have root permissions**
 - Connect to the new user remotely ```ssh student@120.0.0.1 -p 2222```
+  - We used port 2222 because port 22 already usde by our local machine.
+  - vagrant initiated port 2222 automatically for us.
 
 ## Sudoers file
 - This file shows all users that have **Sudo** permisions ```cat /etc/sudoers```
